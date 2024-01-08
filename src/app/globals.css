@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: hsl(0, 78%, 4%); /* Grey background */
+    --foreground: hsl(0, 9%, 2%); /* Black text */
+
+    /* For red text, change --foreground to your desired red color, e.g., --foreground: hsl(0, 100%, 50%); */
+
+    --muted: hsl(208, 24%, 11%); /* Muted background */
+    --muted-foreground: hsl(222.2, 47.4%, 11.2%); /* Muted text */
+
+    --popover: hsl(0, 95%, 50%); /* Popover background */
+    --popover-foreground: hsl(222.2, 47.4%, 11.2%); /* Popover text */
+
+    --card: hsl(0, 100%, 50%); /* Card background */
+    --card-foreground: hsl(222.2, 47.4%, 11.2%); /* Card text */
+
+    --border: hsl(0, 100%, 50%); /* Border color */
+    --input: hsl(214.3, 31.8%, 91.4%); /* Input text */
+
+    --primary: hsl(0, 100%, 50%); /* Red primary color */
+    --primary-foreground: hsl(0, 0%, 100%); /* White text for buttons */
+
+    --secondary: hsl(210, 40%, 96.1%); /* Secondary color */
+    --secondary-foreground: hsl(222.2, 47.4%, 11.2%); /* Secondary text */
+
+    --accent: hsl(0, 100%, 50%); /* Accent color */
+    --accent-foreground: hsl(222.2, 47.4%, 11.2%); /* Accent text */
+
+    --destructive: hsl(0, 100%, 50%); /* Destructive color */
+    --destructive-foreground: hsl(210, 40%, 98%); /* Destructive text */
+
+    --ring: hsl(215, 20.2%, 65.1%); /* Ring color */
+
+    --radius: 0.5rem; /* Border radius */
+  }
+
+  /* Dark mode styles (if needed) */
+  .dark {
+    /* Update the dark mode colors here */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border; /* Apply border styles */
+  }
+  body {
+    background-color: var(--background); /* Apply the background color to the body */
+    color: var(--foreground); /* Set text color */
+    font-feature-settings: "rlig" 1, "calt" 1; /* Font settings */
+  }
+  
+/* Update button styles */
+button {
+  padding: 12px 24px; /* Increased padding for better spacing */
+  border: 2px solid transparent; /* Visible border for all buttons */
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600; /* Adjusted font weight for better readability */
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  /* Gradient background for primary button */
+  background-image: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--accent) 100%
+  );
+  /* Use box-shadow for a subtle elevation effect */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  color: var(--primary-foreground);
+}
+
+button:hover {
+  background-color: var(--destructive); /* Change to red color on hover */
+  color: var(--destructive-foreground); /* Adjust text color for readability */
+  /* You can also add transition properties for a smoother color change */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Secondary button styles */
+button.secondary {
+  background-color: var(--secondary);
+  /* Change text color for secondary button */
+  color: var(--secondary-foreground);
+}
+
+/* Destructive button styles */
+button.destructive {
+  background-color: var(--destructive);
+  /* Change text color for destructive button */
+  color: var(--destructive-foreground);
+}
+
+/* Disabled state */
+button:disabled {
+  opacity: 0.6; /* Reduced opacity for disabled state */
+  cursor: not-allowed; /* Disable pointer events */
+}
+  }
